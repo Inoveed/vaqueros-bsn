@@ -1,129 +1,3 @@
-// "use client";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { useEffect } from "react";
-
-// const Header = () => {
-//   useEffect(() => {
-//     import("bootstrap/js/dist/offcanvas");
-//   }, []);
-
-//   return (
-//     <nav
-//       className="navbar fixed-top"
-//       style={{
-//         backgroundColor: "transparent",
-//         boxShadow: "none",
-//       }}
-//     >
-//       <div className="container-fluid">
-//         <a className="navbar-brand" href="/">
-//           <Image
-//             src={
-//               "https://upload.wikimedia.org/wikipedia/en/a/a0/BayamonVaquerosBSN.png"
-//             }
-//             alt="Logo"
-//             height={130}
-//             width={130}
-//           />
-//         </a>
-//         <button
-//           className="navbar-toggler"
-//           type="button"
-//           data-bs-toggle="offcanvas"============
-//           data-bs-target="#offcanvasNavbar"
-//           aria-controls="offcanvasNavbar"
-//           aria-label="Toggle navigation"
-//           style={{
-//             filter: "invert(1)",
-//           }}
-//         >
-//           <span className="navbar-toggler-icon"></span>
-//         </button>
-//         <div
-//           className="offcanvas offcanvas-end"
-//           tabIndex={-1}
-//           id="offcanvasNavbar"
-//           aria-labelledby="offcanvasNavbarLabel"
-//           style={{
-//             backgroundColor: "rgba(0, 0, 0, 0.7)",
-//             color: "#fff",
-//           }}
-//         >
-//           <div className="offcanvas-header">
-//             {/* <Link href="/auth" className="btn btn-primary btn-md">
-//               Login
-//             </Link> */}
-//             <button
-//               type="button"
-//               className="btn-close"
-//               data-bs-dismiss="offcanvas"
-//               aria-label="Close"
-//               style={{
-//                 filter: "invert(1)",
-//               }}
-//             ></button>
-//           </div>
-//           <div className="offcanvas-body">
-//             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-//               <li className="btn btn-outline-primary">
-//                 <Link
-//                   className="nav-link"
-//                   href="/desdeElApp"
-//                   style={{
-//                     color: "white",
-//                   }}
-//                 >
-//                   CANTINA
-//                 </Link>
-//               </li>
-//               <li className="btn btn-outline-primary">
-//                 <Link
-//                   className="nav-link"
-//                   href="https://shopvaquerosbsn.net/collections/all"
-//                   target="blank"
-//                   style={{
-//                     color: "white",
-//                   }}
-//                 >
-//                   TIENDA
-//                 </Link>
-//               </li>
-//               <li className="btn btn-outline-primary">
-//                 <Link
-//                   className="nav-link"
-//                   href="https://www.bsnpr.com/team/vaqueros/"
-//                   target="blank"
-//                   style={{
-//                     color: "white",
-//                   }}
-//                 >
-//                   ESTADÍSTICAS
-//                 </Link>
-//               </li>
-//             </ul>
-//             {/* <form className="d-flex mt-3" role="search">
-//               <input
-//                 className="form-control me-2"
-//                 type="search"
-//                 placeholder="Ticket ID"
-//                 aria-label="Search"
-//               />
-//               <button className="btn btn-outline-primary" type="submit">
-//                 Seat
-//               </button>
-//             </form> */}
-//           </div>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Header;
-
-//TODO: con el lector del QR code pero tengo que ver como hago pa bypass para las pruebas.
-
 "use client";
 import Link from "next/link";
 import Image from "next/image";
@@ -138,7 +12,7 @@ const Header = () => {
     // Dynamically import Bootstrap's JavaScript to enable sidebar functionality
     (async () => {
       try {
-        await import("bootstrap/dist/js/bootstrap.bundle.min.js" as any);
+        await import("bootstrap/dist/js/bootstrap.bundle.min.js" as string);
       } catch (err) {
         console.error("Failed to load Bootstrap:", err);
       }
@@ -200,7 +74,7 @@ const Header = () => {
       }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" href="/">
           <Image
             src={
               "https://upload.wikimedia.org/wikipedia/en/a/a0/BayamonVaquerosBSN.png"
@@ -209,7 +83,7 @@ const Header = () => {
             height={130}
             width={130}
           />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"

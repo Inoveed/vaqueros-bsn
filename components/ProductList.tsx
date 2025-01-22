@@ -18,7 +18,9 @@ type Product = {
 
 type CartItem = Product & { quantity: number };
 
-const Product: React.FC<DetailPageProps> = ({ request }: any) => {
+const Product: React.FC<DetailPageProps> = ({
+  request,
+}: Record<string, any>) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [filter, setFilter] = useState<
