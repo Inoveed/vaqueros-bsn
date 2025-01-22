@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { IRequest } from "@/lib/types";
+import Link from "next/link";
 
 interface DetailPageProps {
   request: IRequest;
@@ -19,13 +19,13 @@ type Product = {
 type CartItem = Product & { quantity: number };
 
 const Product: React.FC<DetailPageProps> = ({ request }: any) => {
-  const router = useRouter();
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [filter, setFilter] = useState<
     "all" | "alcohol" | "beer" | "food" | "beverage" | "candy"
   >("all");
 
+  console.log(request);
   const products: Product[] = [
     {
       id: "1",
@@ -153,14 +153,14 @@ const Product: React.FC<DetailPageProps> = ({ request }: any) => {
     <div className="bg-gray-100 min-h-screen">
       {/* Header */}
       <header className="flex justify-between items-center p-6 bg-white shadow-md sticky top-0 z-10">
-        <a href="/">
+        <Link href="/">
           <Image
             src="https://upload.wikimedia.org/wikipedia/en/a/a0/BayamonVaquerosBSN.png"
             alt="Logo"
             height={120}
             width={120}
           />
-        </a>
+        </Link>
         <button
           onClick={toggleCart}
           className="relative bg-gray-100 p-2 rounded-full shadow-md"

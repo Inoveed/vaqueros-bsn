@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Product, CartItem } from "@/lib/types";
 import { IRequest } from "@/lib/types";
 import Image from "next/image";
+import Link from "next/link";
 
 interface DetailPageProps {
   request: IRequest;
@@ -14,6 +15,8 @@ const DetailPage: React.FC<DetailPageProps> = ({ request }) => {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [modalMessage, setModalMessage] = useState<string>("");
+
+  console.log(request);
 
   const product: Product = {
     id: 1,
@@ -80,7 +83,7 @@ const DetailPage: React.FC<DetailPageProps> = ({ request }) => {
     <div className="relative bg-gray-50 min-h-screen">
       {/* Header */}
       <header className="flex justify-between items-center p-6 bg-white shadow-md sticky top-0 z-10">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" href="/">
           <Image
             src={
               "https://upload.wikimedia.org/wikipedia/en/a/a0/BayamonVaquerosBSN.png"
@@ -89,7 +92,7 @@ const DetailPage: React.FC<DetailPageProps> = ({ request }) => {
             height={120}
             width={120}
           />
-        </a>
+        </Link>
         <button
           onClick={toggleCart}
           className="relative bg-gray-100 p-2 rounded-full shadow-md"
